@@ -29,10 +29,16 @@ class App extends Component {
   }
 
   getMissionSuccessFilter = async launchsuccess => {
-    console.log('hey nigga');
     this.setState({ loading: true });
     const res = await Axios.get(
       `https://api.spacexdata.com/v3/launches?limit=100&launch_success=${launchsuccess.nativeEvent.toElement.innerText.toLowerCase()}`); // finally done using debugging and finding events
+    this.setState({ missions: res.data, loading: false });
+  }
+
+  getLandSuccessFilter = async landsuccess => {
+    this.setState({ loading: true });
+    const res = await Axios.get(
+      `https://api.spacexdata.com/v3/launches?limit=100&launch_success=${landsuccess.nativeEvent.toElement.innerText.toLowerCase()}`); // finally done using debugging and finding events
     this.setState({ missions: res.data, loading: false });
   }
 
@@ -50,7 +56,7 @@ class App extends Component {
               <p>Successful Launch</p>
               <MissionSuccess success={success} getMissionSuccessFilter={this.getMissionSuccessFilter} />
               <p>Successful Landing</p>
-              <MissionSuccess success={success} />
+              <MissionSuccess success={success} getMissionSuccessFilter={this.getLandSuccessFilter} />
             </div>
             <div className="col-10">
               <MissionList missions={missions} loading={loading} />

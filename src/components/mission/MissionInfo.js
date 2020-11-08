@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MissionInfo = ({ mission: { flight_number, mission_name, launch_success, launch_year, links: { mission_patch }, mission_id, rocket: { first_stage: { cores: { land_success } } } } }) => {
+const MissionInfo = ({ mission: { flight_number, mission_name, launch_success, launch_year, links: { mission_patch }, mission_id, rocket: { first_stage: { cores: { 0: { land_success } } } } } }) => {
     return (
         <div className="Flight_details">
             <div className="img-links">
