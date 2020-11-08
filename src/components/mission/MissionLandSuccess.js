@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-const MissionLandSuccess = ({ landsuccess, index, getLandSuccessFilter }) => {
+const MissionLandSuccess = ({ success, landsuccess, index, getLandSuccessFilter }) => {
     return (
         <div className="success-filter">
             {success.map((lsuc, index) => (
-                <FilterButton className="btn btn-primary" getLandSuccessFilter={getLandSuccessFilter} key={index} value={lsuc} />
+                <button className="btn btn-primary" getLandSuccessFilter={getLandSuccessFilter} key={index} value={lsuc} >{lsuc}</button>
             ))}
         </div>
     )
